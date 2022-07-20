@@ -1,4 +1,4 @@
-<h1>Trailer-Paradise</h1>
+<h1>Trailer Paradise</h1>
 Your place to watch movie and serie trailers.
 
 <h2>Table of Contents</h2>
