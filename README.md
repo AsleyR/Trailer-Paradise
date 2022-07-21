@@ -1,5 +1,5 @@
 <div align="center">
-<img src="media/img/Wide-logo-1200-500.png" alt="Trailer Paradise Logo" width="500">
+<img src="project-media/img/Wide-logo-1200-500.png" alt="Trailer Paradise Logo" width="450">
 
 <br>
 
@@ -13,7 +13,7 @@
 - [License](#license)
 
 ## About project
-This website is made with React Js and Express.
+This website is made with React for the front-end and Express for the back-end.
 
 ## License
 => Read about the license [here](LICENSE).
