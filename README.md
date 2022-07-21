@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./media/img/Wide-logo-1200-500.png" alt="Trailer Paradise Logo" width="500">
+<img src="media/img/Wide-logo-1200-500.png" alt="Trailer Paradise Logo" width="500">
 
 <br>
 
