@@ -1,5 +1,11 @@
-<h1>Trailer Paradise</h1>
-Your place to watch movie and serie trailers.
+<div align="center">
+<img src="./media/img/Wide-logo-1200-500.png" alt="Trailer Paradise Logo" width="500">
+
+<br>
+
+> Your place to watch movie and serie trailers.
+
+</div>
 
 <h2>Table of Contents</h2>
 
