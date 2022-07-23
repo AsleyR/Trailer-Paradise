@@ -6,16 +6,16 @@ const Navbar = () => {
     <nav className='navbar'>
       <ul className='navbar-ul'>
         <li>
-            <Link to={"/"}>Home</Link>
+            <Link to={"/"} className="navbar-link">Home</Link>
         </li>
         <li>
-            <Link to={"/gallery"}>Gallery</Link>
+            <Link to={"/gallery"} className="navbar-link">Gallery</Link>
         </li>
         <li>
-            <Link to={"log-in"}>Log In</Link>
+            <Link to={"log-in"} className="navbar-link-log-in">Log In</Link>
         </li>
-        <li>
-            <Link to={"sign-up"}>Sign Up</Link>
+        <li className='sign-up-li'>
+            <Link to={"sign-up"} className="navbar-link-sign-up">Sign Up</Link>
         </li>
       </ul>
     </nav>
