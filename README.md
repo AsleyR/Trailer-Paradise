@@ -13,7 +13,7 @@
 - [License](#license)
 
 ## About project
-This website is made with React for the front-end and Express for the back-end.
+This website is made with _React_ for the front-end and _Express_ for the back-end.
 
 ## License
-=> Read about the license [here](LICENSE).
+[=> Read about the license 🔏](LICENSE).
