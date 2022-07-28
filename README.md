@@ -13,7 +13,7 @@
 - [License](#license)
 
 ## About project
-This website is made with _React_ for the front-end and, currently, there is no back-end.
+This website is made with _React_ for the front-end and, currently, there is no back-end. Although there is plan for one that handles all the web app logic.
 
 ## License
 [=> Read about the license 🔏](LICENSE).
