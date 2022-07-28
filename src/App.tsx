@@ -3,15 +3,15 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
 } from 'react-router-dom';
 import './App.css';
 import Header from './components/header/Header';
-import ErrorPage from './Pages/ErrorPage';
-import Gallery from './Pages/Gallery';
-import Home from './Pages/Home';
-import LogIn from './Pages/LogIn';
-import SignUp from './Pages/SignUp';
+import ErrorPage from './pages/ErrorPage';
+import Gallery from './pages/Gallery';
+import Home from './pages/Home';
+import LogIn from './pages/Login';
+import Search from './pages/Search';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path='/search' element={<Search/>}/>
         <Route path="/gallery" element={<Gallery />}/>
         <Route path="/log-in" element={<LogIn />}/>
         <Route path="/sign-up" element={<SignUp />}/>
