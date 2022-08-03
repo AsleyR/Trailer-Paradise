@@ -1,9 +1,7 @@
 <div align="center">
 <img src="project-media/img/Wide-logo-1200-500.png" alt="Trailer Paradise Logo" width="450">
-
 <br>
-
-> Your place to watch movie and serie trailers.
+<p>Your place to watch movie and serie trailers.</p>
 
 </div>
 
