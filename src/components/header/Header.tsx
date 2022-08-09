@@ -4,9 +4,9 @@ import Navbar from './Navbar'
 
 const Header = () => {
   return (
-    <header className='header'>
-      <Link className='header-link' to={"/"}><h1>Trailer Paradise</h1></Link>
-        <Navbar />
+    <header className='grid grid-cols-2 py-4 px-20 items-center bg-black'>
+      <Link className='font-bold text-2xl text-slate-100' to={"/"}><h1>Trailer Paradise</h1></Link>
+      <Navbar />
     </header>
   )
 }

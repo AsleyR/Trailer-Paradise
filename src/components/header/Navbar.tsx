@@ -3,22 +3,19 @@ import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
-    <nav className='navbar'>
-      <ul className='navbar-ul'>
-        <li>
-            <Link to={"/"} className="navbar-link">Home</Link>
+    <nav className=''>
+      <ul className='hidden md:flex text-slate-100 justify-end md:gap-6 lg:gap-12 items-center'>
+        <li className='hover:text-slate-500 transition-all'>
+          <Link to={"/trailer"} className="">Search</Link>
         </li>
-        <li>
-          <Link to={"/search"} className="navbar-link">Search</Link>
+        <li className='hover:text-slate-500 transition-all'>
+            <Link to={"/gallery"} className="">Gallery</Link>
         </li>
-        <li>
-            <Link to={"/gallery"} className="navbar-link">Gallery</Link>
+        <li className='hover:text-slate-500 transition-all'>
+            <Link to={"log-in"} className="">Log in</Link>
         </li>
-        <li>
-            <Link to={"log-in"} className="navbar-link-log-in">Log In</Link>
-        </li>
-        <li className='sign-up-li'>
-            <Link to={"sign-up"} className="navbar-link-sign-up">Sign Up</Link>
+        <li className='bg-col1 rounded px-2 py-1 text-white hover:bg-col2 transition-all'>
+            <Link to={"sign-up"} className="">Sign up</Link>
         </li>
       </ul>
     </nav>
