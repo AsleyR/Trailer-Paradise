@@ -13,7 +13,7 @@
 ## About project
 This website is made with _React_ and _Tailwind CSS_ for the front-end and, although not implemented yet, _Express_ for the back-end.
 
-**Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not owned by _**me**_ but by their _**respectives parties**_.
+**Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not owned by _**me**_ but by their _**respective parties**_.
 
 ## License
 [=> Read about the license 🔏](LICENSE).
