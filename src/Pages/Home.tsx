@@ -1,10 +1,17 @@
 import React from 'react'
+import Footer from '../components/Footer'
+import Hero from '../components/home/Hero'
+import Studios from '../components/home/Studios'
+import TPFeatures from '../components/home/TPFeatures'
 
 const Home = () => {
   return (
-    <div>
-      <h1>This is the Home page!</h1>
-    </div>
+    <>
+    <Hero />
+    {/* <Studios /> */}
+    <TPFeatures/>
+    <Footer/>
+    </>
   )
 }
 
