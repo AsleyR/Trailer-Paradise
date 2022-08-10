@@ -11,7 +11,9 @@
 - [License](#license)
 
 ## About project
-This website is made with _React_ for the front-end and, although not implemented yet, _Express_ for the back-end.
+This website is made with _React_ and _Tailwind CSS_ for the front-end and, although not implemented yet, _Express_ for the back-end.
+
+**Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not own by me but by their own respectives parties.
 
 ## License
 [=> Read about the license 🔏](LICENSE).
