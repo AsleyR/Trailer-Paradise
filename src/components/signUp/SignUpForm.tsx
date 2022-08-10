@@ -25,7 +25,7 @@ const SignUpForm: React.FC = () => {
   const passLengthCheck = () => {
     if (input.pass.length < 8 && input.pass.length != 0) {
       return (
-        <label className='mx-5 text-rose-600'>Password is too short!</label>
+        <label className='mx-5 text-col2'>Password is too short!</label>
       )
     }
   }
