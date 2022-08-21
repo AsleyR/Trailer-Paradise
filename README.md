@@ -7,14 +7,14 @@
 
 <h2>Table of Contents</h2>
 
-- [About project](#about-project)
+- [About Project](#about-project)
 - [Features](#features)
   - [Watch Trailers](#watch-trailers)
   - [Account Creation and Login System](#account-creation-and-login-system)
   - [Save Your Favorites Trailers](#save-your-favorites-trailers)
 - [License](#license)
 
-## About project
+## About Project
 This website is made with _React_ and _Tailwind CSS_ for the front-end and, _Express_ par with _MongoDB_ for the back-end.
 
 **Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not owned by _**me**_ but by their _**respective parties**_.
