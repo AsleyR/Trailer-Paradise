@@ -32,7 +32,7 @@ const SignUpForm: React.FC = () => {
   }
 
   return (
-    <div className='md:bg-dark3/[0.9] grid gap-2 px-8 md:px-12 w-full py-16 rounded md:rounded-lg transition-all'>
+    <div className='md:bg-dark3/[0.9] grid gap-2 px-8 md:px-12 w-full pt-16 pb-8 rounded md:rounded-lg transition-all'>
       <h2 className='text-3xl font-bold pb-5 text-left md:text-center'>Create an Account</h2>
       <input
         required

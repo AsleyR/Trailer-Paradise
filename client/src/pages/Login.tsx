@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import LoginForm from '../components/logIn/LoginForm'
+import LoginForm from '../components/login/LoginForm'
 
 interface IState {
   login: {
