@@ -6,12 +6,12 @@ import TPFeatures from '../components/home/TPFeatures'
 
 const Home = () => {
   return (
-    <>
-    <Hero />
-    {/* <Studios /> */}
-    <TPFeatures/>
-    <Footer/>
-    </>
+    <div className='pt-[0rem] sm:pt-[5rem]'>
+      <Hero />
+      {/* <Studios /> */}
+      <TPFeatures/>
+      <Footer/>
+    </div>
   )
 }
 
