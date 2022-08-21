@@ -10,8 +10,8 @@
 - [About project](#about-project)
 - [Features](#features)
   - [Watch Trailers](#watch-trailers)
-  - [Create an Account](#create-an-account)
-  - [Save your favorites trailers](#save-your-favorites-trailers)
+  - [Account Creation and Login System](#account-creation-and-login-system)
+  - [Save Your Favorites Trailers](#save-your-favorites-trailers)
 - [License](#license)
 
 ## About project
@@ -25,11 +25,11 @@ This website is made with _React_ and _Tailwind CSS_ for the front-end and, _Exp
 
 placeholder text
 
-### Create an Account
+### Account Creation and Login System
 
 placeholder text
 
-### Save your favorites trailers
+### Save Your Favorites Trailers
 
 placeholder text
 
