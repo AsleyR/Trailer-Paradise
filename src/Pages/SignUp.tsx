@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import SignUpForm from '../components/signUp/SignUpForm'
-import { Link } from "react-router-dom"
 
 
 interface IState {
@@ -18,17 +17,20 @@ const SignUp = () => {
 
 
   return (
-    <div className='grid grid-cols-none md:grid-cols-2 gap-20 px-20 py-10'>
-      <div>
-        <h2 className='text-2xl sm:text-2xl'>Create an account today and enjoy all the latest movie and serie trailers!</h2>
-        <SignUpForm />
-        <p className='text-lg sm:text-xl md:text-base'>Already have an account? <Link className='hover:text-col2 transition-all' to={"/log-in"}>Log in instead!</Link></p>
-      </div>
-      <div className="bg-none bg-fixed bg-no-repeat bg-cover bg-center rounded md:bg-signup lg:bg-signup">
-        {/* <img className='max-w-full min-h-auto rounded' src='movieNetflix.jpg' alt='Computer with Netflix Open in Browser'></img> */}
+    <div className='max-w-full md:h-screen bg-cemter bg-cover bg-fixed' style={movieBg}>
+      <div className='bg-dark1 h-screen md:h-auto md:bg-transparent pt-[5rem] md:pt-[10rem]'>
+        <div className='grid grid-cols-1 justify-center px-0 text-white'>
+          <div className='grid grid-cols-1 justify-left md:justify-self-center'>
+            <SignUpForm />
+          </div>
+        </div>
       </div>
     </div>
   )
+}
+
+const movieBg = {
+  backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/movieCinema.jpg')"
 }
 
 export default SignUp
