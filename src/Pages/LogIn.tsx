@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import LoginForm from '../components/logIn/LoginForm'
 
 interface IState {
@@ -17,16 +16,20 @@ const LogIn = () => {
   })
 
   return (
-    <div className='grid justify-center py-10'>
-      <div className=''>
-        <h2 className='text-center font-bold text-2xl'>Log in to your account</h2>
-        <LoginForm />
-        <div>
-          <p className='text-lg sm:text-base'>Don't have an account? <Link className='hover:text-col2 transition-all' to={"/sign-up"}>Create one today!</Link></p>
+    <div className='max-w-full h-screen  bg-center bg-fixed bg-cover bg-no-repeat' style={movieBg}>
+      <div className='bg-dark1 md:bg-transparent h-screen md:h-auto pt-[5rem] md:pt-[10rem]'>
+        <div className='grid grid-cols-1 md:grid-cols-none justify-left md:justify-center text-white transition-all'>
+          <div className=''>
+            <LoginForm />
+          </div>
         </div>
       </div>
     </div>
   )
+}
+
+const movieBg = {
+  backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/movieCinema3.jpg')"
 }
 
 export default LogIn
