@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 interface IState {
   login: {
@@ -21,28 +22,30 @@ const LoginForm: React.FC = () => {
   }
 
   return (
-    <div className='grid border-2 border-slate-300 p-5 my-5 rounded-md bg-gray-100'>
-      <p className='pb-1 text-lg sm:text-base'>Username or email address</p>
+    <div className='grid bg-transparent md:bg-dark3/[0.9] gap-2 px-8 md:px-12 py-16 rounded md:rounded-lg'>
+      <h2 className='text-left md:text-center md:text-left font-bold text-4xl pb-5'>Log in</h2>
       <input
+        required
         type="text"
         name="user"
-        placeholder=''
+        placeholder='Username'
         value={input.user}
         onChange={handleChange}
-        className="border border-slate-300 rounded mb-3"
+        className="pl-5 py-3 bg-gray1 placeholder:text-gray3 focus:bg-gray2 focus:outline-none focus:text-white rounded w-full"
       />
       <br></br>
-      <p className='text-lg sm:text-base pb-1'>Password</p>
       <input
+        required
         type="password"
         name="pass"
-        placeholder=''
+        placeholder='Password'
         value={input.pass}
         onChange={handleChange}
-        className="border border-slate-300 rounded mb-5"
+        className="pl-5 py-3 bg-gray1 placeholder:text-gray3 focus:bg-gray2 focus:outline-none focus:text-white rounded w-full"
       />
       <br></br>
-      <button className='text-xl sm:text-base bg-col1 rounded text-slate-100 text-center font-bold p-1 hover:bg-col2 transition-all'>Log in</button>
+      <button className='mt-5 text-lg bg-col1 rounded text-slate-100 text-center font-bold py-2 hover:bg-col2 transition-all'>Log in</button>
+      <p className='pt-5 text-lg sm:text-base transition-all'>Don't have an account? <Link className='hover:text-col2 transition-all' to={"/sign-up"}>Create one today!</Link></p>
     </div>
   )
 }
