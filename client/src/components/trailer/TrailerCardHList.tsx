@@ -4,6 +4,7 @@ import TrailerCard from './TrailerCard'
 
 interface IProps {
   trailerList: {
+    id: number;
     url: string;
     imageUrl: string;
     trailerName: string;
@@ -12,7 +13,7 @@ interface IProps {
 
 const TrailerCardHList = ({ trailerList }: IProps) => {
     const navigation = useNavigate()
-  const [trailer, setTrailer] = useState(trailerList)
+    const [trailer, setTrailer] = useState(trailerList)
 
   const renderTrailerCard = () => {
     return (
@@ -23,10 +24,9 @@ const TrailerCardHList = ({ trailerList }: IProps) => {
         })
     )
   }
-  
     return (
     <ul className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-x-5 sm:gap-x-5 md:gap-x-5 gap-y-5'>
-    {renderTrailerCard()}
+      {renderTrailerCard()}
     </ul>
   )
 }
