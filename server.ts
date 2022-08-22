@@ -85,24 +85,21 @@ const trailerList = [
 
 // Basic Handling of server home page
 app.get('/', (req, res) => {
-    res.send("TypeScript with Express!");
+    res.send("Homepage of Trailer Paradise Back-end");
 })
 
 // API handling
 app.get('/api', (req, res) => {
-    res.send("This is the API!")
-})
-
-// Custom API Url Handling
-app.get('/api/basic-api-data', (req, res) => {
-    res.status(200).send({api: "Base shit", size: "API SIZE!"})
+    res.send("API Section")
 })
 
 // Custom Trailer list API
+// Return list of all trailers
 app.get('/api/trailers/', (req, res) => {
     res.status(200).send(trailerList)
 })
 
+// Return single trailer object
 app.get('/api/trailers/:id', (req, res) => {
   let response = {}
   let idFound = false
