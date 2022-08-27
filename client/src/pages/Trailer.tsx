@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { FaListUl, FaShare } from 'react-icons/fa'
 import Axios from 'axios'
 import TrailerVideo from '../components/trailer/TrailerVideo'
@@ -12,14 +12,23 @@ interface IState {
     trailerDescription: string;
     videoUrl: string;
     videoReleaseDate: string;
+  },
+  trailerCard: {
+    id: number;
+    url: string
+    imageUrl: string
+    trailerName: string
   }
 }
 
 const Trailer = () => {
   let { trailerId } = useParams()
   const navigation = useNavigate()
-
+  const location = useLocation()
+  const [path, setPath] = useState(location.pathname)
+  const [reloadTrailer, setReloadTrailer] = useState<Boolean>()
   const [trailer, setTrailer] = useState<IState['trailer']>()
+  const [relatedTrailerCard, setRelatedTrailerCard] = useState<IState['trailerCard']>({id:0.1,trailerName:"",url:"",imageUrl:""})
   const [hasLoaded, setHasLoaded] = useState<Boolean>()
 
   useEffect(() => {
@@ -36,12 +45,27 @@ const Trailer = () => {
       })
     }
 
+    const getSingleRandomTrailerData =() => {
+      Axios.get('http://localhost:4000/api/trailers/random').then(res => {
+        if (res.status = 200) {
+          setRelatedTrailerCard(res.data)
+          setHasLoaded(true)
+        }
+      })
+    }
+
+    if (location.pathname !== path) {
+      setPath(location.pathname)
+      getTrailerData()
+    }
+
     getTrailerData()
-  }, [])
+    getSingleRandomTrailerData()
+  }, [location])
 
   const renderTrailerData = () => {
     return (
-      <div className='justify-self-center w-auto px-5 md:pl-[2rem] lg:pl-[5rem] py-3 text-white transition-all'>
+      <div className='justify-self-center w-auto py-3 pr-0 lg:pr-10 text-white transition-all'>
         <div className='justify-self-center'>
           <h1 className='text-2xl md:text-2l font-bold'>{trailer?.trailerName}</h1>
           <p className='font-medium'>{trailer?.videoReleaseDate}</p>
@@ -51,7 +75,7 @@ const Trailer = () => {
         </div>
         <div className='mt-3'>
           <div className='flex gap-3'>
-            <button className='inline-flex font-bold items-center px-5 py-1 bg-col1 hover:bg-col2 rounded-sm text-white'>{<FaShare className='mr-2'/>}SHARE</button>
+            <button className='inline-flex font-bold items-center px-5 py-1 bg-transparent border-2 border-gray2 rounded-sm text-white hover:text-gray-300'>{<FaShare className='mr-2'/>}SHARE</button>
             <button className='inline-flex font-bold items-center px-5 py-1 bg-col1 hover:bg-col2 rounded-sm text-white'>{<FaListUl className='mr-2'/>}SAVE</button>
           </div>
         </div>
@@ -73,15 +97,15 @@ const Trailer = () => {
 
   return (
     <div className='pt-[6rem] md:pt-[5rem] h-full'>
-      <div className='grid grid-cols-1 pb-[10rem]'>
-        {renderTrailerVideo()}
+      <div className='grid grid-cols-1 pb-5'>
+        {reloadTrailer ? null : renderTrailerVideo()}
         <div className='grid grid-cols-none md:grid-cols-1'>
-          <div className="grid grid-cols-1 lg:grid-cols-[auto_min-content] justify-center">
-            {renderTrailerData()}
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_min-content] gap-10 lg:gap-0 px-5 lg:px-[10rem] justify-center transition-all">
+            {reloadTrailer ? null : renderTrailerData()}
             <div className=''>
-              <h1 className='text-white text-center text-2xl font-bold'>Related Content</h1>
-              <div>
-                <TrailerCard trailer={{id: 7, url: 	"/trailer/breaking-bad-season-1", imageUrl: "https://cdn.themovieseries.net//breaking-bad-season-1-hsh/cover.png", trailerName: "Breaking Bad - Season 1"}}/>
+              <h1 className='text-white text-left lg:text-center text-2xl font-bold pb-3'>Related Content</h1>
+              <div className='w-[10rem] lg:w-32'>
+                <TrailerCard trailer={relatedTrailerCard}/>
               </div>
             </div>
           </div>
