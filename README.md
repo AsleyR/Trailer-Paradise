@@ -16,7 +16,7 @@
 - [License](#license)
 
 ## About Project
-This website is made using React.Ts and TailwindCSS for the front-end. And, Express.ts, along with Sass (used in the homepage route of the back-end server) and MongoDB for the back-end.
+This website is made using React.ts and TailwindCSS for the front-end. And, Express.ts, along with Sass (used in the homepage route of the back-end server) and MongoDB for the back-end.
 
 **Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not owned by _**me**_ but by their _**respective parties**_.
 
