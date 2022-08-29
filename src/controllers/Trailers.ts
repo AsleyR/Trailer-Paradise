@@ -8,7 +8,7 @@ exports.findTrailers = async (req: any, res: any) => {
 exports.createTrailer = async (req: any, res: any) => {
     const trailer = new Trailer(req.body)
     await trailer.save()
-    res.status(200).send(trailer).catch(console.log("error creating trailer object"))
+    res.status(200).send(trailer)
 }
 
 exports.findTrailer = async (req: any, res: any) => {
@@ -26,7 +26,3 @@ exports.findTrailer = async (req: any, res: any) => {
         res.status(404).send({result: "Trailer object was not found.", error: err})
     }
 }
-
-// exports.findRandomTrailer = async (req: any, res: any) => {
-//     const trailer = await Trailer.
-// }
