@@ -32,10 +32,14 @@ body {
         }
     }
 
-    .note-p {
-        font-weight: bold;
+    .note-container {
         padding: 1rem 0rem;
+        
+        .note-p {
+            font-weight: bold;
+        }
     }
+
 }
 
 .footer-container {

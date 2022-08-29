@@ -28,9 +28,11 @@ body {
 .container .ul-container li {
   padding: 0rem 0rem 0.3rem 0rem;
 }
-.container .note-p {
-  font-weight: bold;
+.container .note-container {
   padding: 1rem 0rem;
+}
+.container .note-container .note-p {
+  font-weight: bold;
 }
 
 .footer-container {
