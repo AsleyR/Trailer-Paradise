@@ -6,10 +6,10 @@ import { useLocation } from 'react-router-dom'
 
 interface IState {
   trailerList: {
-    id: number;
-    url: string
-    imageUrl: string
-    trailerName: string
+    _id: string;
+    title: string
+    trailerUrl: string
+    coverUrl: string
   }[]
 }
 

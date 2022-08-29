@@ -7,17 +7,16 @@ import TrailerCard from '../components/trailer/TrailerCard'
 
 interface IState {
   trailer: {
-    id: number;
-    trailerName: string;
-    trailerDescription: string;
-    videoUrl: string;
-    videoReleaseDate: string;
+    title: string;
+    description: string;
+    trailerUrl: string;
+    releaseDate: string;
   },
   trailerCard: {
-    id: number;
-    url: string
-    imageUrl: string
-    trailerName: string
+    _id: string;
+    title: string
+    trailerUrl: string
+    coverUrl: string
   }
 }
 
@@ -28,7 +27,7 @@ const Trailer = () => {
   const [path, setPath] = useState(location.pathname)
   const [reloadTrailer, setReloadTrailer] = useState<Boolean>()
   const [trailer, setTrailer] = useState<IState['trailer']>()
-  const [relatedTrailerCard, setRelatedTrailerCard] = useState<IState['trailerCard']>({id:0.1,trailerName:"",url:"",imageUrl:""})
+  const [relatedTrailerCard, setRelatedTrailerCard] = useState<IState['trailerCard']>({_id: "",title:"",trailerUrl:"",coverUrl:""})
   const [hasLoaded, setHasLoaded] = useState<Boolean>()
 
   useEffect(() => {
@@ -48,7 +47,7 @@ const Trailer = () => {
     const getSingleRandomTrailerData =() => {
       Axios.get('http://localhost:4000/api/trailers/random').then(res => {
         if (res.status = 200) {
-          setRelatedTrailerCard(res.data)
+          setRelatedTrailerCard(res.data[0])
           setHasLoaded(true)
         }
       })
@@ -67,10 +66,10 @@ const Trailer = () => {
     return (
       <div className='justify-self-center w-auto py-3 pr-0 lg:pr-10 text-white transition-all'>
         <div className='justify-self-center'>
-          <h1 className='text-2xl md:text-2l font-bold'>{trailer?.trailerName}</h1>
-          <p className='font-medium'>{trailer?.videoReleaseDate}</p>
+          <h1 className='text-2xl md:text-2l font-bold'>{trailer?.title}</h1>
+          <p className='font-medium'>{trailer?.releaseDate}</p>
           <div className='w-full'>
-            <p className='pt-2 md:pt-1 md:text-base'>{trailer?.trailerDescription}</p>
+            <p className='pt-2 md:pt-1 md:text-base'>{trailer?.description}</p>
           </div>
         </div>
         <div className='mt-3'>
@@ -88,7 +87,7 @@ const Trailer = () => {
       <div className='bg-dark1 border-b-2 border-gray1 grid grid-cols-1 md:grid-cols-none py-0 md:py-12 justify-center shadow'>
         <div className='justify-center px-0 md:px-0 w-auto md:w-[45rem] lg:w-[50rem] transition-all'>
           <div className='grid grid-cols-1 justify-center max-w-[55rem]'>
-            {hasLoaded ? <TrailerVideo videoUrl={trailer?.videoUrl}/>: null}
+            {hasLoaded ? <TrailerVideo videoUrl={trailer?.trailerUrl}/>: null}
           </div>
         </div>
       </div>

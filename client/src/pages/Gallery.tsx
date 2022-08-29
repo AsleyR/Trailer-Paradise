@@ -4,10 +4,10 @@ import TrailerCard from '../components/trailer/TrailerCardHList'
 
 interface IState {
   trailerList: {
-    id: number;
-    url: string;
-    imageUrl: string;
-    trailerName: string;
+    _id: string;
+    title: string;
+    trailerUrl: string;
+    coverUrl: string;
   }[]
 }
 
