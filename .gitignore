@@ -2,3 +2,4 @@
 *.css.map
 .env
 .vercel
+.vscode
