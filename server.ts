@@ -1,4 +1,5 @@
-import express from 'express';
+import express from "express"
+import path from 'path'
 const {mongoose} = require("mongoose")
 require("dotenv").config()
 
@@ -24,12 +25,8 @@ mongoose.connect(uri, { useNewUrlParser: true,
   // Setup Port 4000 for the server to run
   const PORT: string = process.env.PORT || '4000';
 
-  // Basic Handling of server homepage
-  // Returns html file with Css styles
-  app.use(express.static("public"));
-
   // API handling
-  app.get('/api', (req, res) => {
+  app.get('/api', (req: any, res: any) => {
       res.status(200).send("API Section")
   })
 
@@ -41,7 +38,23 @@ mongoose.connect(uri, { useNewUrlParser: true,
   app.post('/api/trailers/', trailerController.createTrailer)
 
   // Find specific trailer object
-  app.get('/api/trailers/:id', trailerController.findTrailer)
+  app.get('/api/trailers/id/:id', trailerController.findTrailerById)
+
+  app.get('/api/trailers/:name', trailerController.findTrailerByName)
+
+  // Render client side
+  // Returns html file with Css styles
+  // app.use(express.static(path.join(__dirname, "./client/build")));
+  app.use(express.static(path.join(__dirname, "./public/")))
+
+  // app.get('*', (_, res) => {
+  //   res.sendFile(path.join(__dirname, "./client/build/index.html"),
+  //   (err) => {
+  //     if (err) {
+  //       res.status(500).send(err)
+  //     }
+  //   })
+  // })
 
   // Server setup
   app.listen(PORT, () => {
