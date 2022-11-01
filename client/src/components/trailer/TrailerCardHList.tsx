@@ -16,10 +16,12 @@ const TrailerCardHList = ({ trailerList }: IProps) => {
     const [trailer, setTrailer] = useState(trailerList)
 
   const renderTrailerCard = () => {
+    let keyNum = 0
     return (
         trailer.map((trailer) => {
+            keyNum = keyNum + 1
             return (
-              <TrailerCard trailer={trailer}/>
+              <TrailerCard key={`${keyNum}`} trailer={trailer}/>
             )
         })
     )
