@@ -4,6 +4,8 @@ import Hero from '../components/home/Hero'
 import TPFeatures from '../components/home/TPFeatures'
 
 const Home = () => {
+  document.title = "Trailer Paradise"
+
   return (
     <div className='pt-[0rem] sm:pt-[5rem]'>
       <Hero />
