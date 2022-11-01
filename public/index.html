@@ -11,15 +11,20 @@
     <div class="container">
         <h1>Welcome to Trailer Paradise's back-end!</h1>
         <div class="info-container">
-            <p class="list-header">List of API Routes:</p>
+            <p class="list-header">Examples of API Routes:</p>
             <ul class="ul-container">
                 <li><a href="/api/trailers">Get all trailer objects</a></li>
-                <li><a href="/api/trailers/630bafc8eea1b0d7c3d518b6">Get a specific trailer by id</a></li>
-                <li><a href="/api/trailers/random">Get a random trailer object</a></li>
+                <li><a href="/api/trailers/id/63422fd45747f23e88a1a1b0">Get a specific trailer by id</a> (Redirect to 'Minions: The Rise of Gru' object)</li>
+                <li><a href="/api/trailers/minions">Search trailer objects by title</a> (Search for keyword 'Minions')</li>
+                <li><a href="/api/trailers/id/random">Get a random trailer object</a></li>
             </ul>
             <div class="note-container">
-                <p class="note-p">Note: "Get a specific trailer by id" link will redirect to an example trailer object.</p>
-                <p class="note-p">Note II: "Get a random trailer" returns an array with a single object.</p>
+                <p class="note-p">Note: Some of the example links redirect to hard-code examples.</p>
+                <p class="note-p">Note II: "Get a random trailer" returns an array with the single random trailer object.</p>
+            </div>
+            <div class="note-container">
+                <h2>Documentation</h2>
+                <p>See the documentation in the <a href="https://github.com/AsleyR/Trailer-Paradise" target="_blank">project repo</a>.</p>
             </div>
         </div>
     </div>
