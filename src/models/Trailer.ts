@@ -4,8 +4,9 @@ interface ISchema {
     schema: {
         title: string;
         description: string;
-        trailerUrl: string;
         releaseDate: string;
+        genres: string[];
+        trailerUrl: string;
         coverUrl: string;
     }
 }
@@ -13,8 +14,9 @@ interface ISchema {
 const schema = new mongoose.Schema<ISchema['schema']>({
     title: String,
     description: String,
-    trailerUrl: String,
     releaseDate: String,
+    genres: [String],
+    trailerUrl: String,
     coverUrl: String
 });
 
