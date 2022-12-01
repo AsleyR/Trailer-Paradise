@@ -7,38 +7,34 @@
 
 <h2>Table of Contents</h2>
 
-- [About Project](#about-project)
-- [Features](#features)
-  - [Watch Trailers](#watch-trailers)
-  - [Account Creation and Login System](#account-creation-and-login-system)
-  - [Save Your Favorites Trailers](#save-your-favorites-trailers)
+- [About](#about)
 - [Project Organization](#project-organization)
+- [Hosting](#hosting)
+  - [Frontend](#frontend)
+  - [Backend](#backend)
 - [License](#license)
 
-## About Project
-This website is made using React.ts and TailwindCSS for the front-end. And, Express.ts, along with Sass (used in the homepage route of the back-end server) and MongoDB for the back-end.
+## About
+This website is made using the MERN Stack, with React.ts and TailwindCSS for the front-end; And, Express.ts, along with Sass (used in the homepage route of the back-end server) and MongoDB for the back-end.
 
-**Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not owned by _**me**_ but by their _**respective parties**_.
+**Trailer Paradise** is made with the intent of simply being a learning project. All of the trailers shown in it are not owned by _**me**_, but by their _**respective parties**_.
 
-## Features
-
-### Watch Trailers
-
-placeholder text
-
-### Account Creation and Login System
-
-placeholder text
-
-### Save Your Favorites Trailers
-
-placeholder text
 
 ## Project Organization
 
 The font-end part of the website, and anything related to it, is located inside the ``'client'`` folder. 
 
-While the back-end part is found, on in perspective of the root folder, on the ``'src'`` and ``'public'`` folders, with the file ``'server.ts'`` being the main file which starts the server.
+While the back-end part is found in the root folder. With the file ``'server.ts'`` being the main file which starts the server.
+
+## Hosting
+
+The project, both the frontend and backend, is hosted on [Render](https://render.com/).
+
+### Frontend
+The frontend part can be found at: [https://trailer-paradise.onrender.com/](https://trailer-paradise.onrender.com/).
+
+### Backend
+The backend part can be found at: [https://trailer-paradise-api.onrender.com](https://trailer-paradise-api.onrender.com).
 
 ## License
 [=> Read about the license 🔏](LICENSE).
