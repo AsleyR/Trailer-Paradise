@@ -33,7 +33,7 @@ const Navbar = ({ isOpen }: any) => {
       <>
       <NavSearchForm/>
       <li key={'1'} className='text-xl md:text-base hover:text-slate-300 transition-all pb-3 md:pb-0'>
-        <a href='/explore'>Explore</a>
+        <a href='/explore?search='>Explore</a>
       </li>
       {/* <li className='text-xl md:text-base hover:text-slate-300 transition-all pb-3 md:pb-0'>
         <Link to={navList[1].url}>{navList[1].urlName}</Link>
