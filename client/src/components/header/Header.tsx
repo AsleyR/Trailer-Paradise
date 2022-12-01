@@ -122,7 +122,7 @@ const Header = () => {
           <Link onClick={() => setIsOpen(false)} className='whitespace-normal md:whitespace-nowrap z-50 order-2 md:order-first font-bold text-2xl text-slate-100' to={"/"}><h1>Trailer Paradise</h1></Link>
         </div>
         <div className="block md:hidden justify-self-end">
-          <div className="text-white" onClick={() => {navigate('/explore')}}>
+          <div className="text-white" onClick={() => {navigate('/explore?search=')}}>
             <FaSearch className='text-white text-xl cursor-pointer hover:text-gray-400 transition-all'/>
           </div>
         </div>
