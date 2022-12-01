@@ -1,6 +1,6 @@
 /node_modules
 *.css.map
 .env
-.vercel
 .vscode
 dist/
+*DS_Store
