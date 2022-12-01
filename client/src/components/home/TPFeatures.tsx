@@ -17,7 +17,7 @@ const TPFeatures = () => {
                 <img className='text-slate-300 w-8/12 h-full rounded' src='images/devices.jpg' alt='person on the computer holding a phone'></img>
             </div>
             <div className=''>
-                <h1 className='font-bold text-4xl md:text-5xl text-center lg:text-left text-white'>Everywhere, without worries.</h1>
+                <h1 className='font-bold text-4xl md:text-5xl text-center lg:text-left text-white'>Enjoy everywhere, without worries.</h1>
                 <p className='text-2xl text-white text-center lg:text-left pt-5'>Enjoy your favorites movies and series trailers on your phone, tablet, and laptop without any hasle.</p>
             </div>
         </div>
