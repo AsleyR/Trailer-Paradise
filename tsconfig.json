@@ -2,9 +2,13 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "rootDir": "./",
-    "outDir": "./build",
+    // "rootDir": "./",
+    "outDir": "./dist",
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "strict": true
-  }
+  },
+  "exclude": [
+    "client"
+  ]
 }
