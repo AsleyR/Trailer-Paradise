@@ -3,6 +3,7 @@ import Axios from 'axios'
 import SearchForm from '../components/SearchForm'
 import TrailerCardHList from '../components/trailer/TrailerCardHList'
 import { useLocation, useParams } from 'react-router-dom'
+import ConnectionError from '../components/error/ConnectionError'
 
 // Store .env value to variable
 const backendUrl = process.env.REACT_APP_BACKEND_URL
@@ -21,6 +22,7 @@ const Search = () => {
   const [trailer, setTrailer] = useState<IState['trailerList']>([])
   const [hasLoaded, setHasLoaded] = useState<Boolean>();
   const [hasSearch, setHasSearch] = useState<Boolean>(false);
+  const [connectionError, setConnectionError] = useState<Boolean>()
   const params = new URLSearchParams(window.location.search)
   const search = params.get('search') 
 
@@ -40,6 +42,11 @@ const Search = () => {
     const getTrailerList = () => {
       if (search !== null || window.location.search !== "") {
         Axios.get(`${backendUrl}/api/trailers/${search}`).then(res => {
+          setConnectionError((state) => {
+            state = false
+            return state
+          }) // Disable server connection error.
+          // console.log(`Status: ${connectionError}`)
           setTrailer((state) => {
             state = res.data
             return state
@@ -50,11 +57,13 @@ const Search = () => {
           })
           setHasSearch(true)
         }).catch(err => {
-          console.log(err)
+          setConnectionError(true) // In case of error, tell server to show up a server connection error.
+          // console.log(`Status: ${connectionError}`)
         })
       }
       else {
         Axios.get(`http://localhost:4000/api/trailers/`).then(res => {
+          setConnectionError(false) // Disable server connection error.
           setTrailer((state) => {
             state = res.data
             return state
@@ -64,6 +73,9 @@ const Search = () => {
             return state
           })
           setHasLoaded(true)
+        }).catch(err => {
+          setConnectionError(true) // In case of error, tell server to show up a server connection error.
+          // console.log(err)
         })
       }
     }
@@ -123,6 +135,7 @@ const Search = () => {
           </div>
           <div className="px-3">
             {hasLoaded ? <TrailerCardHList trailerList={trailer}/>: null}
+            {connectionError ? <ConnectionError/>:null}
           </div>
         </div>
       </div>
