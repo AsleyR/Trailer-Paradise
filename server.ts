@@ -37,7 +37,7 @@ useUnifiedTopology: true })
   // *============== ROUTES ==============*
 
   // For development purpose, use this config to server the folder 'public'
-  // app.use(express.static(path.join(__dirname, "./public/")))
+  // app.use(express.static(path.join(__dirname, "./public")))
 
   // For production, use this one.
   app.use(express.static(path.join(__dirname, '../public')))
