@@ -15,6 +15,8 @@ const SignUp = () => {
       pass: ""
   })
 
+  document.title = "Sign up - Trailer Paradise"
+
 
   return (
     <div className='max-w-full md:h-screen bg-cemter bg-cover bg-fixed' style={movieBg}>

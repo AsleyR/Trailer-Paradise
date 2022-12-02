@@ -15,6 +15,8 @@ const LogIn = () => {
       pass: ""
   })
 
+  document.title = 'Login - Trailer Paradise'
+
   return (
     <div className='max-w-full h-screen  bg-center bg-fixed bg-cover bg-no-repeat' style={movieBg}>
       <div className='bg-dark1 md:bg-transparent h-screen md:h-auto pt-[5rem] md:pt-[10rem]'>
