@@ -1,7 +1,8 @@
 // *============== Import Libraries ==============*
-import express from "express"
+import express, { Request, Response, ErrorRequestHandler } from "express"
 import path from 'path'
 const {mongoose} = require("mongoose")
+const helmet = require('helmet')
 require("dotenv").config()
 
 // *============== Import API Handlers ==============*
@@ -11,17 +12,22 @@ const trailersById = require('./api/TrailersById')
 // Import Trailer controller
 // const trailerController = require('./api/controllers/Trailers')
 
+// *============== Determine Current Enviroment ==============*
+// Determine if code is in a production enviroment
+const isProduction: string | undefined = process.env.IS_IN_PRODUCTION
+
 // *============== MongoDB Database ==============*
 
 // MongoDB Atlas Uri
-const uri = process.env.MONGODB_CONNECTION_STRING
-
+const MongoDBAtlasUri: string | undefined = process.env.MONGODB_CONNECTION_STRING
 // Local DB, for debugging only
 const localDB = "mongodb://localhost:27017/trailer-paradise"
 
+// Uri to connect to Mongo Database
+const MongoUri = isProduction === 'true' ? MongoDBAtlasUri : localDB
 
 // *============== Connect to MongoDB database ==============*
-mongoose.connect(uri, { useNewUrlParser: true,
+mongoose.connect(MongoUri, { useNewUrlParser: true,
 useUnifiedTopology: true })
 .then(() => {
 
@@ -30,35 +36,50 @@ useUnifiedTopology: true })
 
   // *============== Middleware ==============*
   app.use(express.json())
+  app.use(helmet())
 
+  // *============== PORT ==============*
   // Setup Port 4000 for the server to run
   const PORT: string = process.env.PORT || '4000';
 
   // *============== ROUTES ==============*
+  
+  // Check current enviroment
+  if (isProduction === "true") { // Production enviroment
+    app.use(express.static(path.join(__dirname, '../public')))
 
-  // For development purpose, use this config to server the folder 'public'
-  // app.use(express.static(path.join(__dirname, "./public")))
+  } else if (isProduction === 'false') { // Development enviroment
+    app.use(express.static(path.join(__dirname, './public')))
 
-  // For production, use this one.
-  app.use(express.static(path.join(__dirname, '../public')))
+  } else { // In case of error
+    app.use('/', (req: Request, res: Response) => {
+      res.send("Error getting 'public' directory.")
+    })
+  }
 
+  // Routes handlers
   app.use('/api/trailers', allTrailers)
   app.use('/api/trailers/id/', trailersById)
+
+  // // Error Handler Middleware
+  // app.use((err: ErrorRequestHandler, req: Request, res: Response) => {
+  //   res.send(err)
+  // })
 
 
   // *============== Server setup ==============*
   app.listen(PORT, () => {
-      console.log(`[Server]: TypeScript Express server started at: http://localhost:${PORT}`)
+      console.log(`🛠 [Server]:TypeScript Express server started at: http://localhost:${PORT}`)
   })
 }).catch((err: any) => {
   // In case server *=FAILS=* to connect to MongoDB.
   console.log({error: err})
-  console.log("[Database]: Database connection *=FAILED=*, stopping server...")
+  console.log(`❌ [Database]:Database connection ${'*=FAILED=*'}, stopping server...`)
 })
 
 const connection = mongoose.connection;
 
 // In case server *=SUCCESS=* in connecting to MongoDB.
 connection.once("open", () => {
-  console.log("[Database]: MongoDB database connection established *=SUCCESFULLY=*.")
+  console.log("✅[Database]: MongoDB database connection established *=SUCCESFULLY=*.")
 })
