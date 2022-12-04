@@ -1,7 +1,5 @@
 import express from "express"
-import path from 'path'
 const router = express.Router()
-const {mongoose} = require("mongoose")
 require("dotenv").config()
 
 // Import Trailer controller
