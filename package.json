@@ -11,7 +11,8 @@
     "server": "nodemon server.ts",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
-    "install-build": "concurrently -n --timings \"npm install\" \"npm run build\"",
+    "install-build": "npm install && npm run build",
+    "build-start":"npm run build && npm start",
     "test": "",
     "build": "npx tsc"
   },
