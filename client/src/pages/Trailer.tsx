@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { FaListUl, FaShare, FaTimes, FaYoutube } from 'react-icons/fa'
 import Axios from 'axios'
@@ -35,6 +35,7 @@ const Trailer = () => {
   const [relatedTrailerCard, setRelatedTrailerCard] = useState<IState['trailerCard']>({_id: "",title:"",trailerUrl:"",coverUrl:""})
   const [hasLoaded, setHasLoaded] = useState<Boolean>()
   const [sharePop, setSharePop] = useState<Boolean>()
+  const [savePop, setSavePop] = useState<Boolean>()
   const [copyInput, setCopyInput] = useState<IState['copyInput']>({
     copyInput: window.location.href
   })
@@ -44,7 +45,7 @@ const Trailer = () => {
   useEffect(() => {
     const getTrailerData = () => {
       Axios.get(`${backendUrl}/api/trailers/id/${trailerId}`).then(res => {
-        if (res.status = 200) {
+        if (res.status === 200) {
           setTrailer(res.data)
           setHasLoaded(true)
           document.title = `${res.data.title} - Trailer Paradise`
@@ -58,7 +59,7 @@ const Trailer = () => {
 
     const getSingleRandomTrailerData =() => {
       Axios.get(`${backendUrl}/api/trailers/id/random`).then(async (res) => {
-        if (res.status = 200) {
+        if (res.status === 200) {
           setRelatedTrailerCard(res.data[0])
           setHasLoaded(true)
         }
@@ -94,7 +95,7 @@ const Trailer = () => {
         <div className='mt-3'>
           <div className='flex gap-3'>
             <button onClick={() => setSharePop(true)} className='inline-flex font-bold items-center px-5 py-1 bg-transparent border-2 border-gray2 rounded-sm text-white hover:text-gray-300'>{<FaShare className='mr-2'/>}SHARE</button>
-            <button className='inline-flex font-bold items-center px-5 py-1 bg-col1 hover:bg-col2 rounded-sm text-white'>{<FaListUl className='mr-2'/>}SAVE</button>
+            <button onClick={() => setSavePop(true)} className='inline-flex font-bold items-center px-5 py-1 bg-col1 hover:bg-col2 rounded-sm text-white'>{<FaListUl className='mr-2'/>}SAVE</button>
           </div>
         </div>
       </div>  
@@ -110,7 +111,7 @@ const Trailer = () => {
         ==============================================
         Knowing myself, this piece of code will become
         foreign to me in the near future.
-        Good luck to my future self then aparrently.
+        Good luck to my future self then, aparrently.
         ==============================================
         */
        
@@ -165,6 +166,25 @@ const Trailer = () => {
     )
   }
 
+  const renderSavePopUp = () => {
+    return (
+      <div className={`fixed z-50 grid justify-center items-center inset-0 w-full h-full`}>
+        <div onClick={() => setSavePop(false)} className="absolute inset-0 z-40 h-full bg-black/50"></div>
+        <div className="grid gap-2 z-50 mx-5 px-5 py-5 items-center bg-dark2 ring-1 ring-gray2 text-white rounded-sm">
+          <div className="grid grid-cols-2">
+            <div className="text-lg">
+              <p>Save trailer</p>
+            </div>
+            <div onClick={() => {setSavePop(false)}} className="cursor-pointer justify-self-end">
+                <FaTimes className='text-xl hover:text-gray-300'/>
+            </div>
+          </div>
+          <p className='px-10 py-5 font-bold text-lg text-center'>Coming soon!</p>
+        </div>
+      </div>
+    )
+  }
+
   const renderTrailerVideo = () => {
     return (
       <div className='bg-dark1 border-b-2 border-gray1 grid grid-cols-1 md:grid-cols-none py-0 md:py-12 justify-center shadow'>
@@ -181,6 +201,10 @@ const Trailer = () => {
     <>
     { sharePop ?
       renderSharePopUp():
+      null
+    }
+    { savePop ?
+      renderSavePopUp():
       null
     }
     <div className='pt-[6rem] md:pt-[5rem] h-full'>
