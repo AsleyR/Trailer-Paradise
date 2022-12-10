@@ -24,7 +24,7 @@ const SignUpForm: React.FC = () => {
   }
 
   const passLengthCheck = () => {
-    if (input.pass.length < 8 && input.pass.length != 0) {
+    if (input.pass.length < 8 && input.pass.length !== 0) {
       return (
         <p className='text-col2'>Password is too short!</p>
       )
