@@ -66,7 +66,7 @@ const Header = () => {
           <FaUser className='text-4xl text-gray2'/>
         </div>
         :
-        <img className='rounded-full max-w-auto w-20 h-full' src='https://avatars.githubusercontent.com/u/79556058?v=4'></img>
+        <img className='rounded-full max-w-auto w-20 h-full' src='https://avatars.githubusercontent.com/u/79556058?v=4' alt='profile pic'></img>
         }
       </li>
     )
