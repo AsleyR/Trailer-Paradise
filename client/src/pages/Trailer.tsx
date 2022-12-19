@@ -214,7 +214,7 @@ const Trailer = () => {
           <div className="grid grid-cols-1 md:grid-cols-[auto_auto] gap-3 md:gap-8 lg:gap-2 px-10 lg:px-[10rem] justify-center transition-all">
             {reloadTrailer ? null : renderTrailerData()}
             <div className='flex flex-col py-3 justify-center'>
-              <h1 className='text-white text-left lg:text-center text-2xl font-bold pb-3'>Related Content</h1>
+              <h1 className='text-white text-left lg:text-center text-2xl font-bold pb-3'>Watch next</h1>
               <div className="flex lg:justify-center">
                 <div className='w-[10rem] lg:w-32'>
                   <TrailerCard key={'trailerCard'} trailer={relatedTrailerCard}/>
