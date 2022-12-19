@@ -4,6 +4,7 @@ import SearchForm from '../components/SearchForm'
 import TrailerCardHList from '../components/trailer/TrailerCardHList'
 import { useLocation, useParams } from 'react-router-dom'
 import ConnectionError from '../components/error/ConnectionError'
+import Loading from '../components/loading/Loading'
 
 // Store .env value to variable
 const backendUrl = process.env.REACT_APP_BACKEND_URL
@@ -79,47 +80,6 @@ const Search = () => {
         })
       }
     }
-
-    // const getTrailerList2 = () => {
-    //   const params = new URLSearchParams(window.location.search)
-    //   const search = params.get('search')
-    //   console.log(`test: ${search}`)
-    //   if (location.pathname === "/explore" || location.pathname === "/explore/") {
-    //     setHasSearch(false)
-    //     setHasLoaded((state) => {
-    //       state = false
-    //       return state
-    //     })
-    //     Axios.get("http://localhost:4000/api/trailers").then(res => {
-    //       setTrailer((state) => {
-    //         state = res.data
-    //         return state
-    //       })
-    //       console.log(res.data)
-    //       setHasLoaded(true)
-    //     }).catch(err => {
-    //       console.log(err)
-    //     })
-    //   }
-    //   else {
-    //     Axios.get(`http://localhost:4000/api/trailers/${searchTerm}`).then(res => {
-    //       setHasLoaded((state) => {
-    //         state = false
-    //         return state
-    //       })
-    //       setHasSearch(true)
-    //       console.log(res.data)
-    //       setTrailer((state) => {
-    //         state = res.data
-    //         return state
-    //       })
-    //       setHasLoaded(true)
-    //       console.log(trailer)
-    //     }).catch(err => {
-    //       console.log(err)
-    //     })
-    //   }
-    // }
     
     getTrailerList()
 
@@ -134,7 +94,7 @@ const Search = () => {
             <SearchForm />
           </div>
           <div className="px-3">
-            {hasLoaded ? <TrailerCardHList trailerList={trailer}/>: null}
+            {hasLoaded ? <TrailerCardHList trailerList={trailer}/>:<Loading/>}
             {connectionError ? <ConnectionError/>:null}
           </div>
         </div>
