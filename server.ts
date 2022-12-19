@@ -6,6 +6,7 @@ const helmet = require('helmet')
 require("dotenv").config()
 
 // *============== Import API Handlers ==============*
+const homepage = require('./api/Homepage')
 const allTrailers = require('./api/AllTrailers')
 const trailersById = require('./api/TrailersById')
 
@@ -39,27 +40,20 @@ useUnifiedTopology: true })
   app.use(helmet())
 
   // *============== PORT ==============*
-  // Setup Port 4000 for the server to run
+  // Setup Port either to procress enviroment variable, or to Port 4000
   const PORT: string = process.env.PORT || '4000';
 
   // *============== ROUTES ==============*
-  
-  // Check current enviroment
-  if (isProduction === "true") { // Production enviroment
-    app.use(express.static(path.join(__dirname, '../public')))
-
-  } else if (isProduction === 'false') { // Development enviroment
-    app.use(express.static(path.join(__dirname, './public')))
-
-  } else { // In case of error
-    app.use('/', (req: Request, res: Response) => {
-      res.send("Error getting 'public' directory.")
-    })
-  }
 
   // Routes handlers
+  app.use('/', homepage)
   app.use('/api/trailers', allTrailers)
   app.use('/api/trailers/id/', trailersById)
+
+  // '/api/' route, return simple text message.
+  app.use('/api/', (req: Request, res: Response) => {
+    res.send("Api section.")
+  })
 
   // // Error Handler Middleware
   // app.use((err: ErrorRequestHandler, req: Request, res: Response) => {
