@@ -37,10 +37,13 @@ body {
 
 .footer-container {
   position: absolute;
-  display: flex;
+  display: grid;
   justify-content: center;
   bottom: 0;
   right: 0;
   left: 0;
   padding: 0rem 0rem 1rem 0rem;
+}
+.footer-container .author {
+  text-align: center;
 }/*# sourceMappingURL=index.css.map */
