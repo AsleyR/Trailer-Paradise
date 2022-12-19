@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
       </div>
       <div className=''>
-          <h1 className='text-bg2'>Copyright © Trailer Paradise. All Rights Reserved </h1>
+          <h1 className='text-bg2'>Licensed under <a className='hover:underline' href='https://github.com/AsleyR/Trailer-Paradise/blob/main/LICENSE' target={'_blank'}>GPL-3.0-or-later</a>. All Rights Reserved. </h1>
       </div>
     </footer>
   )
