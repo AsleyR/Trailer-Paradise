@@ -90,12 +90,15 @@ const Search = () => {
       <div className='pt-[5rem] md:pt-[5rem]'>
         <div className='grid px-5 gap-10 md:px-5 lg:px-20 py-10 text-white'>
           <div className='max-w-6xl px-3'>
-            {hasSearch && window.location.search !== "" && search !== "" && !checkForOnlyPlusChar(window.location.search.split('=').pop()) ? <h2 className='font-bold text-2xl md:text-4xl truncate'>Search results for "{search}</h2>: <h2 className='font-bold text-2xl md:text-4xl'>Search</h2>}
+            {hasSearch && window.location.search !== "" && search !== "" && !checkForOnlyPlusChar(window.location.search.split('=').pop()) ? <h2 className='font-bold text-2xl md:text-4xl truncate'>Search results for "{search}"</h2>: <h2 className='font-bold text-2xl md:text-4xl'>Search</h2>}
             <SearchForm />
           </div>
           <div className="px-3">
-            {hasLoaded ? <TrailerCardHList trailerList={trailer}/>:<Loading/>}
-            {connectionError ? <ConnectionError/>:null}
+            {connectionError ? 
+              <ConnectionError/>
+              :
+              hasLoaded ? <TrailerCardHList trailerList={trailer}/>:<Loading/>
+            }
           </div>
         </div>
       </div>
